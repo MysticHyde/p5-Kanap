@@ -215,7 +215,7 @@ export class Cart {
             this.EmptyCart();
         }
         updated_cart = JSON.stringify(updated_cart);
-        
+
         localStorage.setItem('cart', updated_cart);
 
     }
@@ -226,13 +226,14 @@ export class Cart {
             return new Promise(resolve => {
 
                 let ApiClass = new Api;
+                let ErrorClass = new Error;
 
                 let total_price = 0;
                 let total_quantity = 0;
 
-                if (localStorage.getItem('cart').length > 0) {
-                    let cart_list = localStorage.getItem('cart');
-                    cart_list = JSON.parse(localStorage.getItem('cart'));
+                let cart_list = localStorage.getItem('cart');
+                cart_list = JSON.parse(localStorage.getItem('cart'));
+                if (cart_list != null && cart_list.length > 0) {
 
                     ApiClass.GetProductList()
                         .then(function (products) {
@@ -254,7 +255,7 @@ export class Cart {
                             console.log(err);
                         })
                 } else {
-                    console.log('rien');
+                    ErrorClass.Notification('Veuillez n\'avez aucun article pour le moment');
                 }
 
             })
@@ -269,7 +270,7 @@ export class Cart {
         let totalQuantity_element = document.getElementById('totalQuantity');
         let totalPrice_element = document.getElementById('totalPrice');
         let cart_items_element = document.getElementById('cart__items');
-    
+
         cart_items_element.innerHTML = `
         <p>Aucun article dans votre panier</p>
         `
