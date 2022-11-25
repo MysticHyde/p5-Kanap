@@ -60,6 +60,4 @@ export class Api {
         let result = await ProductRequest(data);
         return result;
     }
-
-
 }

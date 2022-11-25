@@ -46,6 +46,7 @@ if (search_params.has('id')) {
 
 // Clic sur le bouton d'ajout au panier //
 AddToCartElement.addEventListener('click', () => {
+    console.log('add crat func');
     let id = product_id;
     let color = ColorElement.value;
     let quantity = QuantityElement.value;

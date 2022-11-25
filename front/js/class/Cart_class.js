@@ -51,7 +51,7 @@ export class Cart {
                                 // Si l'element existe déjà dans le panier, passage de l'état sur True
                                 if (element.id == product_id && element.color == product_color && element_state === false) {
                                     element_state = true
-                                    product_quantity = parseInt(product_quantity) + element.quantity
+                                    product_quantity = parseInt(product_quantity) + parseInt(element.quantity)
                                     if (product_quantity > 100) {
                                         // Si le nombre de produits est supérieur à 100, message d'alerte et quantité à 100
                                         error = 'Vous avez ' + product_quantity + ' produits, la limite est fixé à 100';

@@ -14,7 +14,5 @@ export class Order {
             .catch(() => {
                 alert("Erreur: Envoi des données immpossible, veuillez rééssayer.");
             });
-
     }
-
 }

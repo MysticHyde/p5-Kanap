@@ -165,27 +165,26 @@ function InputCheckout(type, val) {
         return validate;
     }
 
-    // switch (String(type)) {
+    switch (String(type)) {
 
-    //     case 'firstName':
-    //         validate = /^[a-zA-Z]+[ -]?[a-zA-Z]+$/igm.test(value)
-    //         break
-    //     case 'lastName':
-    //         validate = /^[a-zA-Z]+[ -]?[a-zA-Z]+$/igm.test(value)
-    //         break
-    //     case 'address':
-    //         validate = /^[a-zA-Z0-9éêèà\s-]+$/igm.test(value)
-    //         break
-    //     case 'email':
-    //         validate = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/igm.test(value)
-    //         break
+        case 'firstName':
+            validate = /^[a-zéèçà]{2,20}(-| )?([a-zéèçà]{2,20})(-| )?([a-zéèçà]{2,20})?$/gmi.test(value)
+            break
+        case 'lastName':
+            /^[a-zéèçà]{2,20}(-| )?([a-zéèçà]{2,20})(-| )?([a-zéèçà]{2,20})?$/gmi.test(value)
+            break
+        case 'address':
+            validate = /^[0-9]{0,5}( )?([a-zéèçà -]{5,60})/gmi.test(value)
+            break
+        case 'email':
+            validate = /^[a-z0-9_-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z])?$/igm.test(value)
+            break
 
-    //     case 'city':
-    //         // validate = /^[a-zA-Z][a-zA-Z\s-]+[a-zA-Z]$/igm.test(value)
-    //         validate = /^[a-zA-Z0-9éèà\s-]+$/igm.test(value)
-    //         break
-    // }
-    validate = true;
+        case 'city':
+            // validate = /^[a-zA-Z][a-zA-Z\s-]+[a-zA-Z]$/igm.test(value)
+            validate = /^[a-zA-Z0-9éèà\s-]+$/igm.test(value)
+            break
+    }
     return validate
 }
 
